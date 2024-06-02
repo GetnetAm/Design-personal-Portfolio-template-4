@@ -7,16 +7,16 @@ function Header({title, subtitle}) {
     const colors= tokens(theme.palette.mode);
   return (
     <div>
-        <Box mb="30px">
+        <Box mb="30px" display="flex" gap="500px">
             <Typography 
-            variant='h2'
-            color={colors.grey[100]}
+            variant='h3'
+            color={colors.greenAccent[400]}
             fontWeight="bold"
             sx={{mb: "5px"}}>
                 {title}
 
             </Typography>
-            <Typography variant='h5' color={colors.greenAccent[400]}>
+            <Typography variant='h4'  color={colors.grey[100]}>
                 {subtitle}
             </Typography>
 
