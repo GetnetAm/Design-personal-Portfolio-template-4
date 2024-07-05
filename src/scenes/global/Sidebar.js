@@ -1,7 +1,7 @@
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
-import {tokens } from "../../theme"
+import {ColorModeContext, tokens } from "../../theme"
 
 import HomeIcon from '@mui/icons-material/Home';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
@@ -19,7 +19,8 @@ import { RiMenuFold4Fill } from "react-icons/ri";
 // import profileImge from "../../../images/user1.jpeg"
 import profileImge from "../../images/user2.jpg"
 
-import { useState } from "react";
+
+import { useContext, useState } from "react";
 
 const Item =({ title, to, icon, selected, setSelected})=>{
   const theme = useTheme();
@@ -41,29 +42,16 @@ const Item =({ title, to, icon, selected, setSelected})=>{
   )
 }
 
-// const Item = ({ title, to, icon, selected, setSelected }) => {
-//   const theme = useTheme();
-//   const colors = tokens(theme.palette.mode);
-//   return (
-//     <MenuItem
-//       active={selected === title}
-//       style={{
-//         color: colors.grey[100],
-//       }}
-//       onClick={() => setSelected(title)}
-//       icon={icon}
-//     >
-//       <Typography>{title}</Typography>
-//       <Link to={to} />
-//     </MenuItem>
-//   );
-// };
-
-
 const SidebarPart=()=> {
-  const theme= useTheme();
-  const colors= tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed]= useState(false);
+  // const theme= useTheme();
+  // const colors= tokens(theme.palette.mode);
+  // const [isCollapsed, setIsCollapsed]= useState(false);
+  // const [selected, setSelected]= useState("Dashboard")
+
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  const colorMode= useContext(ColorModeContext);
+    const [isCollapsed, setIsCollapsed]= useState(false);
   const [selected, setSelected]= useState("Dashboard")
   return (
     <Box>
@@ -143,7 +131,7 @@ const SidebarPart=()=> {
             </Typography>
             <Item
               title="About"
-              to={`/team`}
+              to={`/about`}
               icon={<PeopleAltIcon />}
               selected={selected}
               setSelected={setSelected}

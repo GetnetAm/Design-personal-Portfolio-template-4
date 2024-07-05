@@ -4,11 +4,13 @@ import Header from '../../components/Header';
 import { tokens } from '../../theme';
 import gcPhoto from "../../images/gc.jpg"
 import "./home.css"
+import AboutPage from '../about/AboutPage';
 
 function Dashboard() {
   const theme= useTheme();
   const colors= tokens(theme.palette.mode);
   return (
+    <div>
     <Box m="20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="Full stack Software Developer" subtitle="Getnet Amsalu" />
@@ -107,7 +109,14 @@ function Dashboard() {
 
       </Box>
 
+
+
     </Box>
+
+    <AboutPage />
+
+    </div>
+    
   )
 }
 
